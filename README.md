@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# FloraVision
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern plant e-commerce landing page built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** — UI library
+- **TypeScript** — type safety
+- **Vite** — build tool with HMR
+- **Tailwind CSS 3** — utility-first styling
+- **ESLint** — linting
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Node.js](https://nodejs.org/) v18 or higher
+- npm, yarn, or pnpm
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the repository**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/your-username/flora-vision.git
+cd flora-vision
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Install dependencies**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Running the Project
+
+### Development server
+
+Starts Vite dev server with hot module replacement on `http://localhost:5173`
+
+```bash
+npm run dev
+```
+
+### Production build
+
+Type-checks with TypeScript then bundles for production into `dist/`
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+Serves the `dist/` folder locally to verify the production build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+Runs ESLint across all source files
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+flora-vision/
+├── public/
+├── src/
+│   ├── assets/          # Images (plant photos, user avatars, hero background)
+│   ├── components/
+│   │   ├── Icons.tsx         # Shared SVG icon components
+│   │   ├── SectionTitle.tsx  # SectionTitle + BracketTitle components
+│   │   ├── Navbar.tsx
+│   │   ├── HeroBanner.tsx
+│   │   ├── PlantItem.tsx     # Floating product card with slide navigation
+│   │   ├── TopSelling.tsx
+│   │   ├── PlantCard.tsx
+│   │   ├── O2Plants.tsx
+│   │   ├── CustomerReviews.tsx
+│   │   ├── TestimonialCard.tsx
+│   │   └── Footer.tsx
+│   ├── data/
+│   │   └── plants.ts    # Plant data, O2 slides, testimonials
+│   ├── types/
+│   │   └── index.ts     # Plant, Testimonial, O2Slide interfaces
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── index.css
+│   └── App.css
+├── index.html
+├── tailwind.config.js
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
 ```
