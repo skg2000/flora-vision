@@ -1,6 +1,6 @@
 import SectionTitle from './SectionTitle';
 import PlantCard from './PlantCard';
-import { trendingPlants } from '../data/plants';
+import { topSellingPlants } from '../data/plants';
 
 function ArrowRightIcon() {
   return (
@@ -31,7 +31,7 @@ export default function TrendingPlants() {
 
         {/* Cards grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {trendingPlants.map(plant => (
+          {topSellingPlants.map(plant => (
             <PlantCard key={plant.id} plant={plant} />
           ))}
         </div>
