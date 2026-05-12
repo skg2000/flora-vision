@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 interface SectionTitleProps {
   badge?: string;
   title: string;
@@ -22,6 +24,20 @@ export default function SectionTitle({ badge, title, subtitle, centered = false 
           {subtitle}
         </p>
       )}
+    </div>
+  );
+}
+
+export function BracketTitle({ children, className = '' }: { children: ReactNode; className?: string }) {
+  return (
+    <div className="flex justify-center">
+      <h2 className={`text-white text-3xl md:text-4xl font-bold px-4 ${className}`}>
+        <span className="relative">
+          <span className="absolute -left-3 top-0 bottom-0 border-l-2 border-b-2 border-[#c8d87a] w-3" />
+          {children}
+          <span className="absolute -right-3 top-0 bottom-0 border-r-2 border-b-2 border-[#c8d87a] w-3" />
+        </span>
+      </h2>
     </div>
   );
 }
