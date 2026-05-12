@@ -1,0 +1,11 @@
+/* All styling is handled by Tailwind CSS via index.css */
+/* Custom keyframes for hero floating cards */
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
